@@ -3,10 +3,65 @@ import React from "react";
 const Passenger = () =>
 {
     return(
-        <div>
-          <h1>Welcom Passenger</h1>
-
-        </div>
+      <>
+      <div className="my-5 background-pass">
+      <h1 className="text-center">Passenger Registration</h1>
+          <div className="container contact_div">
+          <div className="row">
+              <div className="col-mb-6 col-5 mx-right">
+               <form>
+               <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">FullName</label>
+             <input type="fullname" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">Age</label>
+             <input type="phone" className="form-control" id="exampleFormControlInput1" placeholder="your age"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">DOB</label>
+             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="dd-mm-yyyy"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">Phone No</label>
+             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="mobile number"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">Nationality</label>
+             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="your nationality"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">Email</label>
+             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">Gender</label>
+             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="your gender"/>
+             </div>
+             <div className="mb-3">
+             <label for="exampleFormControlInput1" className="form-label">Passport No</label>
+             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="your passport number"/>
+             </div>
+             <div className="mb-3">
+               <label for="exampleFormControlTextarea1" className="form-label">Address</label>
+               <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+               </div>
+             <div className="col-12">
+              <button className="btn btn-outline-primary" type="submit">
+                  Submit form
+              </button>
+              <h1>{'\n'}</h1>
+             </div>
+               </form>
+              </div>
+              <h7>After submitting your details, our team will </h7>
+              <h7>contact you for further communication and</h7>
+              <h7>assistance.</h7>
+              <h7>Thank you for your cooperation.</h7>
+          </div>
+      </div>
+   </div>
+      </>
     );
 }
 export default Passenger;
