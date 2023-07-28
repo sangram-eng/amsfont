@@ -14,8 +14,8 @@ const Contact = ()=>
                <input type="fullname" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name"/>
                </div>
                <div className="mb-3">
-               <label for="exampleFormControlInput1" className="form-label">Pnone</label>
-               <input type="phone" className="form-control" id="exampleFormControlInput1" placeholder="mobile number"/>
+               <label for="exampleFormControlInput1" className="form-label">Phone No</label>
+               <input type="phone" className="form-control" id="exampleFormControlInput1" placeholder="xxxxxxxxxx"/>
                </div>
                <div className="mb-3">
                <label for="exampleFormControlInput1" className="form-label">Email</label>

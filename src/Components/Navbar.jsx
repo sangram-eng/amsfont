@@ -11,7 +11,7 @@ const Navbar =() =>{
         <div className="col-12 mx-auto">
      <nav className="navbar navbar-expand-lg bg-white text-dark">
      <div className="col-8 container-fluid">
-     <NavLink class="navbar-brand" to="/"><img src={img1} className="logo" alt="home img"></img></NavLink>
+     <NavLink className="navbar-brand" to="/"><img src={img1} className="logo" alt="home img"></img></NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +36,7 @@ const Navbar =() =>{
     </div>
   </div>
   <div className="col-3 container-fluid">
-  <form class="d-flex">
+  <form className="d-flex">
         <input className="form-control ms-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit"> Search</button>
       </form>

@@ -15,7 +15,7 @@ const Sdata =[
     {
         imgsrc: web1,
         title: "Flight Details",
-        about:"Hii, Passenger You will chack all flight details.",
+        about:"Hii, Passenger You will check all flight details.",
         bt:"Details",
         url:"/flightdetails",
     },

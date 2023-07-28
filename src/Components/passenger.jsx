@@ -1,8 +1,32 @@
-import React from "react";
+import axios from "axios";
 
-const Passenger = () =>
+import React, { useState } from "react";
+
+const Passenger = ()=>
 {
-    return(
+  const data={userName:"",age:"",dob:"",phoneNo:"",nationality:"",emailId:"",gender:"",passportNo:"",address:""};
+  const [inputData,setinputData]=useState(data);
+  
+const handleData=(e)=>{
+  setinputData({...inputData,[e.target.name]:e.target.value})
+}
+
+let axiosConfig = {
+  headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Credentials':true
+  }
+};
+const handleSubmit=(e)=>{
+  e.preventDefault();
+  axios.post("http://localhost:9090/ams/passenger/register",inputData,axiosConfig)
+  .then((response)=>{
+    console.log(response)
+  })
+}
+
+  return(
       <>
       <div className="my-5 background-pass">
       <h1 className="text-center">Passenger Registration</h1>
@@ -11,53 +35,72 @@ const Passenger = () =>
               <div className="col-mb-6 col-5 mx-right">
                <form>
                <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">FullName</label>
-             <input type="fullname" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name"/>
+             <label htmlFor="userNamee" className="form-label">FullName</label>
+             <input type="text" className="form-control" value={inputData.userName}onChange={handleData} placeholder="Enter your name"name="userName"
+            
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">Age</label>
-             <input type="phone" className="form-control" id="exampleFormControlInput1" placeholder="your age"/>
+             <label htmlFor="age" className="form-label">Age</label>
+             <input type="text" className="form-control" value={inputData.age}onChange={handleData} placeholder="your age"name="age"
+             
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">DOB</label>
-             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="dd-mm-yyyy"/>
+             <label htmlFor="dob" className="form-label">DOB</label>
+             <input type="text" className="form-control" value={inputData.dob}onChange={handleData}  placeholder="dd-mm-yyyy"name="dob"
+            
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">Phone No</label>
-             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="mobile number"/>
+             <label htmlFor="phoneNo" className="form-label">Phone No</label>
+             <input type="text" className="form-control" value={inputData.phoneNo}onChange={handleData} placeholder="mobile number" name="phoneNo"
+             
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">Nationality</label>
-             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="your nationality"/>
+             <label htmlFor="nationality" className="form-label">Nationality</label>
+             <input type="text" className="form-control" value={inputData.nationality}onChange={handleData} placeholder="your nationality" name="nationality"
+             
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">Email</label>
-             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+             <label htmlFor="emailId" className="form-label">Email</label>
+             <input type="text" className="form-control" vvalue={inputData.emailId}onChange={handleData} placeholder="name@example.com"name="emailId"
+             
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">Gender</label>
-             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="your gender"/>
+             <label htmlFor="gender" className="form-label">Gender</label>
+             <input type="text" className="form-control" value={inputData.gender}onChange={handleData} placeholder="your gender"name="gender"
+            
+             />
              </div>
              <div className="mb-3">
-             <label for="exampleFormControlInput1" className="form-label">Passport No</label>
-             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="your passport number"/>
+             <label htmlFor="passportNo" className="form-label">Passport No</label>
+             <input type="text" className="form-control" value={inputData.passportNo}onChange={handleData} placeholder="your passport number"name="passportNo"
+             
+             />
              </div>
              <div className="mb-3">
-               <label for="exampleFormControlTextarea1" className="form-label">Address</label>
-               <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+               <label htmlFor="address" className="form-label">Address</label>
+               <textarea type="text"className="form-control"value={inputData.address}onChange={handleData}  rows="3"name="address"></textarea>
                </div>
              <div className="col-12">
-              <button className="btn btn-outline-primary" type="submit">
-                  Submit form
+              <button className="btn btn-outline-primary"onClick={handleSubmit} type="submit">
+                  Submit
+              </button>
+              <button className="btn btn-outline-danger mx-2" type="submit">
+                 Cancel
               </button>
               <h1>{'\n'}</h1>
              </div>
                </form>
               </div>
-              <h7>After submitting your details, our team will </h7>
-              <h7>contact you for further communication and</h7>
-              <h7>assistance.</h7>
-              <h7>Thank you for your cooperation.</h7>
+              <h6>After submitting your details, our team will </h6>
+              <h6>contact you For further communication and</h6>
+              <h6>assistance.</h6>
+              <h6>Thank you For your cooperation.</h6>
           </div>
       </div>
    </div>

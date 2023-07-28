@@ -3,7 +3,6 @@ import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import ReactD from  "react-dom";
-import Passenger from './Components/passenger';
 import Home from './Components/Home';
 import FlightDetails from './Components/FlightDetails';
 import Bill from './Components/Bill';
@@ -16,6 +15,7 @@ import Contact from './Components/Contact';
 import Service from './Components/Service';
 import About from './Components/About';
 import ViewPassenger from './Components/ViewPassenger';
+import Passenger from './Components/Passenger';
 
 const App = () => {
   return (
