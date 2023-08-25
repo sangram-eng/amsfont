@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import ReactD from  "react-dom";
 import Home from './Components/Home';
 import FlightDetails from './Components/FlightDetails';
 import Bill from './Components/Bill';
@@ -16,6 +15,8 @@ import Service from './Components/Service';
 import About from './Components/About';
 import ViewPassenger from './Components/ViewPassenger';
 import Passenger from './Components/Passenger';
+import SinglePassengerView from './Components/SinglePassengerView';
+import PassengerEdit from './Components/PassengerEdit';
 
 const App = () => {
   return (
@@ -33,6 +34,8 @@ const App = () => {
      <Route exact path="/bookticket" component={BookTicket}/>
      <Route exact path="/cancellation" component={Cancellation}/>
      <Route exact path="/viewpassenger" component={ViewPassenger}/>
+     <Route exact path="/view/:id" component={SinglePassengerView}/>
+     <Route exact path="/edit/:id" component={PassengerEdit}/>
      <Redirect to="/" />
      </Switch>
   

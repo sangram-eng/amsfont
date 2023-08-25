@@ -1,7 +1,6 @@
 import axios from "axios";
-
 import React, { useState } from "react";
-
+import Swal from "sweetalert2";
 const Passenger = ()=>
 {
   const data={userName:"",age:"",dob:"",phoneNo:"",nationality:"",emailId:"",gender:"",passportNo:"",address:""};
@@ -22,7 +21,14 @@ const handleSubmit=(e)=>{
   e.preventDefault();
   axios.post("http://localhost:9090/ams/passenger/register",inputData,axiosConfig)
   .then((response)=>{
-    console.log(response)
+    //console.log(response)
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Passenger Registration Successfully',
+      showConfirmButton: false,
+      timer: 1500
+    })
   })
 }
 
