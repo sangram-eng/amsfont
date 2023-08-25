@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import {useHistory } from "react-router-dom";
 const Passenger = ()=>
 {
-  const data={userName:"",age:"",dob:"",phoneNo:"",nationality:"",emailId:"",gender:"",passportNo:"",address:""};
+  const history = useHistory();
+  const data={userName:"",age:"",dob:"",phoneNo:"",nationality:"",emailId:"",gender:"",passportNo:"",vaccineId:"",address:""};
   const [inputData,setinputData]=useState(data);
   
 const handleData=(e)=>{
@@ -19,7 +21,7 @@ let axiosConfig = {
 };
 const handleSubmit=(e)=>{
   e.preventDefault();
-  axios.post("http://localhost:9090/ams/passenger/register",inputData,axiosConfig)
+  axios.post("http://localhost:9090/ams/api/v1/passenger/register",inputData,axiosConfig)
   .then((response)=>{
     //console.log(response)
     Swal.fire({
@@ -29,6 +31,7 @@ const handleSubmit=(e)=>{
       showConfirmButton: false,
       timer: 1500
     })
+    history.push("/service");
   })
 }
 
@@ -87,6 +90,11 @@ const handleSubmit=(e)=>{
              <input type="text" className="form-control" value={inputData.passportNo}onChange={handleData} placeholder="your passport number"name="passportNo"
              
              />
+             </div> <div className="mb-3">
+             <label htmlFor="vaccineId" className="form-label">VaccineId</label>
+             <input type="text" className="form-control" value={inputData.vaccineId}onChange={handleData} placeholder="your vaccineId "name="vaccineId"
+             
+             />
              </div>
              <div className="mb-3">
                <label htmlFor="address" className="form-label">Address</label>
@@ -96,7 +104,7 @@ const handleSubmit=(e)=>{
               <button className="btn btn-outline-primary"onClick={handleSubmit} type="submit">
                   Submit
               </button>
-              <button className="btn btn-outline-danger mx-2" type="submit">
+              <button className="btn btn-outline-danger mx-2" type="cancel">
                  Cancel
               </button>
               <h1>{'\n'}</h1>

@@ -14,6 +14,7 @@ const SinglePassengerView = ()=> {
     emailId:"",
     gender:"",
     passportNo:"",
+    vaccineId:"",
     address:""
   });
 
@@ -68,6 +69,10 @@ const SinglePassengerView = ()=> {
                 <li className="list-group-item">
                   <b>Passport No:     </b>
                   {user.passportNo}
+                </li>
+                <li className="list-group-item">
+                  <b>Vaccine Id:     </b>
+                  {user.vaccineId}
                 </li>
                 <li className="list-group-item">
                   <b>Address:     </b>

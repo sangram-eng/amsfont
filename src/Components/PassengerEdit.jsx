@@ -17,10 +17,11 @@ const PassengerEdit = ()=> {
     emailId:"",
     gender:"",
     passportNo:"",
+    vaccineId:"",
     address:""
   });
 
-  const { userName,age,dob,phoneNo,nationality, emailId, gender,passportNo,address} = user;
+  const { userName,age,dob,phoneNo,nationality, emailId, gender,passportNo,vaccineId,address} = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -41,7 +42,7 @@ const PassengerEdit = ()=> {
       timer: 1500
     })
     loadUser();
-    history.push("/");
+    history.push("/service");
   };
   
 
@@ -158,6 +159,19 @@ const PassengerEdit = ()=> {
                 placeholder="Enter your  Passport-No"
                 name="passportNo"
                 value={passportNo}
+                onChange={(e) => onInputChange(e)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="address" className="form-label">
+              Vaccine Id
+              </label>
+              <input
+                type={"text"}
+                className="form-control"
+                placeholder="Enter your  Passport-No"
+                name="vaccineId"
+                value={vaccineId}
                 onChange={(e) => onInputChange(e)}
               />
             </div>

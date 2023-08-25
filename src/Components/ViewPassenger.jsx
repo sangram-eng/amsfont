@@ -46,6 +46,7 @@ const ViewPassenger = ()=> {
       <th scope="col">Email</th>
       <th scope="col">Gender</th>
       <th scope="col">PassportNo</th>
+      <th scope="col">VaccineId</th>
       <th scope="col">Address</th>
       <th scope="col">Action</th>
             </tr>
@@ -65,6 +66,7 @@ const ViewPassenger = ()=> {
               <td>{user.emailId}</td>
               <td>{user.gender}</td>
              <td>{user.passportNo}</td>
+             <td>{user.vaccineId}</td>
             <td>{user.address}</td>
                 <td>
                 <button
