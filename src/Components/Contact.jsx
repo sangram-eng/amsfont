@@ -1,9 +1,11 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 const Contact = ()=>
 {
     return(
         <>
+        <Navbar/>
         <div className="my-5 background-Cont">
             <div className="container contact_div">
             <div className="row">

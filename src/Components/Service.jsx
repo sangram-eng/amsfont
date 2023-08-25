@@ -1,11 +1,13 @@
 import React from "react";
 import Sdata from "./Sdata";
 import Card from "./Card";
+import Navbar from "./Navbar";
 
 const Service = ()=>
 {
     return(
         <>
+        <Navbar/>
         <div className="my-5">
         <h1 className="text-center">Our Services</h1>
         </div>

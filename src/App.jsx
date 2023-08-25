@@ -17,13 +17,21 @@ import ViewPassenger from './Components/ViewPassenger';
 import Passenger from './Components/Passenger';
 import SinglePassengerView from './Components/SinglePassengerView';
 import PassengerEdit from './Components/PassengerEdit';
+import Login from './Components/Login';
+import Hom from './Components/Hom';
+import userEvent from '@testing-library/user-event';
+import User from './Components/User';
+import Admin from './Components/Admin';
+import Abau from './Components/Abau';
 
 const App = () => {
   return (
   <>
-     <Navbar />
+    
      <Switch>
-     <Route exact path="/" component={Home}/>
+     <Route exact path="/" component={Hom}/>
+     <Route exact path="/home" component={Home}/>
+     <Route exact path="/abou" component={Abau}/>
      <Route exact path="/about" component={About}/>
      <Route exact path="/service" component={Service}/>
      <Route exact path="/contact" component={Contact}/>
@@ -36,6 +44,9 @@ const App = () => {
      <Route exact path="/viewpassenger" component={ViewPassenger}/>
      <Route exact path="/view/:id" component={SinglePassengerView}/>
      <Route exact path="/edit/:id" component={PassengerEdit}/>
+     <Route exact path="/login" component={Login}/>
+     <Route exact path="/user" component={User}/>
+     <Route exact path="/admin" component={Admin}/>
      <Redirect to="/" />
      </Switch>
   

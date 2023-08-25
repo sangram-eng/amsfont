@@ -4,7 +4,7 @@ const BookTicket = ()=>
 {
     return(
         <div>
-          <h1>Welcome to Bookticket</h1>
+         
 
         </div>
     );

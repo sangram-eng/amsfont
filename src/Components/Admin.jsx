@@ -1,19 +1,20 @@
 import React from "react";
 import Common from "./Common";
-import Navbar from "./Navbar";
+
+import Newnav from "./Newnav";
 
 
-const Home = () =>
+const Admin = () =>
 {
     return(
         <>
-         <Navbar/>
+         <Newnav/>
          <div className="background-image">
          <Common name="Hi,"
-         abt="Where"
-         abt1="would"
-         abt2="you like to go?"
-         visit="/service"
+         abt="Admin"
+         abt1="Great"
+         abt2="Welcome To AMS"
+         visit="/login"
          btname="Get started"
          wrt="Unlock Your Journey:"  
          wrt1="Soaring Towards Boundless Horizons!"   
@@ -24,4 +25,4 @@ const Home = () =>
         </>
     );
 };
-export default Home;
+export default Admin;

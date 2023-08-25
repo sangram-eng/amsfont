@@ -2,8 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import img1 from '../images/worldd.png';
 
-
-const Navbar =() =>{
+const Unavbar =() =>{
 
     return(
      <>
@@ -20,8 +19,9 @@ const Navbar =() =>{
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
 
+     
         <li className="nav-item">
-          <NavLink activeClassName='menu_active' exact className="nav-link active" aria-current="page"to="/">Home</NavLink>
+          <NavLink activeClassName='menu_active' exact className="nav-link active" aria-current="page"to="/home">Home</NavLink>
         </li>
         <li className="nav-item">
           <NavLink  activeClassName='menu_active'className="nav-link"to="/about">About</NavLink>
@@ -29,11 +29,11 @@ const Navbar =() =>{
         <li className="nav-item">
           <NavLink className="nav-link"to="/contact">Contact</NavLink>
         </li>
-        
         <li className="nav-item">
-          <NavLink className="nav-link"to="/service">Service</NavLink>
+          <NavLink className="nav-link"to="/passenger">Passenger Registration </NavLink>
         </li>
-       
+
+   
       </ul>
      
     </div>
@@ -52,4 +52,4 @@ const Navbar =() =>{
     </>
     );
 };
-export default Navbar;
+export default Unavbar;

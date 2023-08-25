@@ -1,12 +1,12 @@
 import React from "react";
 import Common from "./Common";
-import Navbar from "./Navbar";
+import Unavbar from "./Unavbar";
 
-const About = ()=>
+const Abau = ()=>
 {
     return(
         <>
-        <Navbar/>
+        <Unavbar/>
         <div className="background-About">
         <Common name="Welcome to"
         abt=" About"
@@ -14,7 +14,7 @@ const About = ()=>
         abt2="Taking Flight Towards Excellence:"
         abt3="Join us on a Journey of Innovation "
         abt4="and Service in the Skies."
-        visit="/contact"
+        visit="/login"
         btname="Contact Now"
         hig="Taking Flight Towards Excellence"
        wrt1="Start with an attention-grabbing title"  
@@ -30,4 +30,4 @@ const About = ()=>
         </>
     );
 }
-export default About;
+export default Abau;

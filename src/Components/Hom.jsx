@@ -1,20 +1,18 @@
 import React from "react";
 import Common from "./Common";
-import Navbar from "./Navbar";
+import Nab from "./Nab";
 
-
-const Home = () =>
+const Hom = () =>
 {
     return(
         <>
-         <Navbar/>
+        <Nab/>
          <div className="background-image">
          <Common name="Hi,"
          abt="Where"
          abt1="would"
          abt2="you like to go?"
          visit="/service"
-         btname="Get started"
          wrt="Unlock Your Journey:"  
          wrt1="Soaring Towards Boundless Horizons!"   
        
@@ -24,4 +22,4 @@ const Home = () =>
         </>
     );
 };
-export default Home;
+export default Hom;
