@@ -17,8 +17,6 @@ import Passenger from './Components/passenger';
 import SinglePassengerView from './Components/SinglePassengerView';
 import PassengerEdit from './Components/PassengerEdit';
 import Login from './Components/Login';
-import User from './Components/User';
-import Admin from './Components/Admin';
 import Abau from './Components/Abau';
 
 const App = () => {
@@ -41,8 +39,6 @@ const App = () => {
      <Route exact path="/view/:id" component={SinglePassengerView}/>
      <Route exact path="/edit/:id" component={PassengerEdit}/>
      <Route exact path="/login" component={Login}/>
-     <Route exact path="/user" component={User}/>
-     <Route exact path="/admin" component={Admin}/>
      <Redirect to="/" />
      </Switch>
   

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 import Navbar from "./Navbar";
 
 const Login = () => {
@@ -13,87 +14,102 @@ const Login = () => {
     if (localStorage.getItem("token")) {
       history.push("/home"); // Redirect if already logged in
     }
-  }, []);
+  }, [history]);
 
   async function login() {
     setError(""); // Clear previous errors
 
-    let item = new URLSearchParams();
+    const item = new URLSearchParams();
     item.append("username", username);
     item.append("password", password);
 
     try {
-      let response = await fetch("http://localhost:9090/ams/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Accept: "application/json",
-        },
-        body: item,
-      });
+      const response = await axios.post(
+        "http://localhost:9090/ams/api/v1/auth/login",
+        item,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Accept: "application/json",
+          },
+        }
+      );
 
-      let result = await response.text(); // Read response as text
-      console.log("Raw Response:", result); // Debugging: Log API response
+      console.log("Login Response:", response.data); // Debugging: Log API response
 
-      // Extract token from response
-      let tokenMatch = result.match(/Token:\s(\S+)/); // Regex to get token
-
-      if (tokenMatch && tokenMatch[1]) {
-        let token = tokenMatch[1]; // Get extracted token
-        localStorage.setItem("token", token); // Store token for future API calls
+      // Check if response contains the expected 'token' and 'username'
+      if (response.data.token && response.data.username) {
+        localStorage.setItem("token", response.data.token); // Store token
+        localStorage.setItem("username", response.data.username); // Store username
         history.push("/home"); // Redirect to home after login
       } else {
-        setError("Invalid response from server. Please try again.");
+        setError("Invalid login response. Please contact support.");
       }
     } catch (error) {
-      setError("Error connecting to server. Please try again later.");
+      if (error.response) {
+        // Server responded with an error status
+        console.error("Response Error:", error.response);
+        setError(
+          `Login failed: ${error.response.data.message || "Invalid credentials"}`
+        );
+      } else if (error.request) {
+        // No response received from server
+        console.error("Request Error:", error.request);
+        setError("Server not responding. Please try again later.");
+      } else {
+        console.error("Axios Error:", error.message);
+        setError("Unexpected error occurred. Please try again.");
+      }
     }
   }
 
   return (
     <>
       <Navbar />
-      <div className="col-mb-6 col-12 text-center">
-        <br />
-        <h1>Login Page</h1>
-        <br />
-        <input
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          type="text"
-          placeholder="Enter your username"
-          id="username"
-          name="username"
-        />
-        <br />
-        <br />
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          placeholder="Enter your password"
-          id="password"
-          name="password"
-        />
-        <br />
-        <br />
+      <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>
+        <div className="card shadow-lg p-4 rounded-4" style={{ width: "400px" }}>
+          <div className="card-body text-center">
+            <h2 className="mb-4">Login</h2>
 
-        {error && <p style={{ color: "red" }}>{error}</p>} {/* Show error message */}
+            {/* Username Input */}
+            <div className="mb-3">
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                type="text"
+                className="form-control p-3 rounded-pill"
+                placeholder="Enter your username"
+              />
+            </div>
 
-        <div className="col-sm-12">
-          <button className="btn btn-primary" onClick={login}>
-            Login
-          </button>
+            {/* Password Input */}
+            <div className="mb-3">
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                className="form-control p-3 rounded-pill"
+                placeholder="Enter your password"
+              />
+            </div>
+
+            {/* Error Message */}
+            {error && <p className="text-danger">{error}</p>}
+
+            {/* Login Button */}
+            <button className="btn btn-primary btn-lg rounded-pill w-100" onClick={login}>
+              Login
+            </button>
+
+            {/* Register Link */}
+            <p className="mt-3">
+              New user?{" "}
+              <NavLink to="/register" className="btn btn-outline-primary btn-sm rounded-pill">
+                Register here
+              </NavLink>
+            </p>
+          </div>
         </div>
-        <br />
-
-        {/* Register link for new users */}
-        <p>
-          New user?{" "}
-          <NavLink to="/register" className="btn btn-outline-primary">
-            Register here
-          </NavLink>
-        </p>
       </div>
     </>
   );

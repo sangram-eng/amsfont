@@ -36,17 +36,18 @@
 }
 
 .logo {
-  height: 40px;
+  height: 50px;
   width: auto;
 }
 
 .background-image {
   background-image: url('./images/world.png');
   background-size: contain;
-  padding: 1cm;
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: right 20px bottom -50px; /* Moves it slightly down */
+  padding: 1cm;
 }
+
 
 .background-About {
   background-image: url('./images/ibmgw.png');
@@ -59,12 +60,16 @@
 
 .background-Cont {
   background-image: url('./images/Ctnn.png');
-  background-size: contain;
-  height: 100%;
-  width: 100%;
+  background-size: 55%; /* Adjust image size */
   background-repeat: no-repeat;
-  background-position: bottom right;
+  background-position: right center; /* Center vertically and keep right */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: flex-start; /* Keep text on the left */
+  padding: 50px; /* Add some spacing */
 }
+
 
 .background-pass {
   background-image: url('./images/passeng.jpg');
@@ -83,9 +88,11 @@
 #header {
   width: 100%;
   height: 80vh;
-  margin-top: 70px;
-  text-align: left;
+  margin-top: 100px; /* Increase this value to move it further down */
+  text-align: left; /* This only aligns text, not the element itself */
+  padding-top: 30px; /* Adds space inside the element to push content down */
 }
+
 
 #header h1 {
   font-size: 48px;
