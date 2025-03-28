@@ -13,7 +13,7 @@ const Home = () =>
          abt="Where"
          abt1="would"
          abt2="you like to go?"
-         visit="/service"
+         visit="/login"
          btname="Get started"
          wrt="Unlock Your Journey:"  
          wrt1="Soaring Towards Boundless Horizons!"   

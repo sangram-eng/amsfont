@@ -1,107 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: muli;
+  font-family: "Mulish", sans-serif;
 }
 
-.navbar{
-  background-color: white!important;
+.navbar {
+  background-color: white !important;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: 1.9rem !important;
-  
 }
 
-.navbar a{
+.navbar a {
   font-size: 1.3rem;
   text-transform: capitalize;
 }
 
-.menu_active{
-font-weight: bold;
-border-bottom: 1px solid #565387;
-
+.menu_active {
+  font-weight: bold;
+  border-bottom: 1px solid #565387;
 }
 
-.navbar a:hover{
+.navbar a:hover {
   color: #3498db !important;
 }
 
-@media (max-width: 991px){
-  .navbar-brand{
+@media (max-width: 991px) {
+  .navbar-brand {
     font-size: 1.5rem !important;
   }
 }
-.menu_active{
-  font-weight: bold;
-  border-bottom: none;
+
+.logo {
+  height: 40px;
+  width: auto;
 }
 
-.logo{
-      height: 100%;
-      width: 100%; 
-      
-}
-.background-image{
+.background-image {
   background-image: url('./images/world.png');
   background-size: contain;
   padding: 1cm;
   background-repeat: no-repeat;
   background-position: center right;
-  
 }
-.background-About{
+
+.background-About {
   background-image: url('./images/ibmgw.png');
   background-size: contain;
   height: 190%;
   width: 100%;
   background-repeat: no-repeat;
   background-position: bottom right;
-  
 }
-.background-Cont{
+
+.background-Cont {
   background-image: url('./images/Ctnn.png');
   background-size: contain;
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
   background-position: bottom right;
-  
 }
-.background-pass{
+
+.background-pass {
   background-image: url('./images/passeng.jpg');
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
   background-position: top right;
 }
-.button-reg{
+
+.button-reg {
   float: right;
+  margin-top: 10px;
+  padding: 8px 15px;
 }
-#header{
+
+#header {
   width: 100%;
   height: 80vh;
   margin-top: 70px;
+  text-align: left;
 }
-#header h1{
-  margin: 0.0.10px.0;
+
+#header h1 {
   font-size: 48px;
   font-weight: 700;
   color: black;
 }
-#header .brand-name{
+
+#header .brand-name {
   color: #3498db;
 }
-#header h2{
+
+#header h2 {
   color: #484848;
   font-size: 24px;
 }
-#header.btn-get-started{
+
+#header .btn-get-started {
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -114,30 +115,34 @@ border-bottom: 1px solid #565387;
   text-decoration: none;
 }
 
-#header.btn-get-started:hover{
+#header .btn-get-started:hover {
   background: #3498db;
   color: #fff;
 }
-.header-img{
+
+.header-img {
   text-align: left;
 }
-#header .animated{
+
+#header .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
-@-webkit-keyframes up-down{
-  0%{
-    transform: translate(10px);
+
+/* 🔹 Animation Fix */
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
   }
-  100%{
-    transform: translate(-10px);
+  100% {
+    transform: translateY(-10px);
   }
 }
 
 @keyframes up-down {
-  0%{
-    transform: translate(10px);
+  0% {
+    transform: translateY(10px);
   }
-  100%{
-    transform: translate(-10px);
+  100% {
+    transform: translateY(-10px);
   }
 }

@@ -9,17 +9,14 @@ import Cancellation from './Components/Cancellation';
 import BookTicket from './Components/BookTicket';
 import Refund from './Components/Refund';
 import {Switch, Route, Redirect } from "react-router-dom";
-import Navbar from './Components/Navbar';
 import Contact from './Components/Contact';
 import Service from './Components/Service';
 import About from './Components/About';
 import ViewPassenger from './Components/ViewPassenger';
-import Passenger from './Components/Passenger';
+import Passenger from './Components/passenger';
 import SinglePassengerView from './Components/SinglePassengerView';
 import PassengerEdit from './Components/PassengerEdit';
 import Login from './Components/Login';
-import Hom from './Components/Hom';
-import userEvent from '@testing-library/user-event';
 import User from './Components/User';
 import Admin from './Components/Admin';
 import Abau from './Components/Abau';
@@ -29,8 +26,7 @@ const App = () => {
   <>
     
      <Switch>
-     <Route exact path="/" component={Hom}/>
-     <Route exact path="/home" component={Home}/>
+     <Route exact path="/" component={Home}/>
      <Route exact path="/abou" component={Abau}/>
      <Route exact path="/about" component={About}/>
      <Route exact path="/service" component={Service}/>
