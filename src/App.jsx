@@ -18,6 +18,7 @@ import SinglePassengerView from './Components/SinglePassengerView';
 import PassengerEdit from './Components/PassengerEdit';
 import Login from './Components/Login';
 import Abau from './Components/Abau';
+import Register from './Components/Register';
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
      <Route exact path="/view/:id" component={SinglePassengerView}/>
      <Route exact path="/edit/:id" component={PassengerEdit}/>
      <Route exact path="/login" component={Login}/>
+     <Route exact path="/register" component={Register}/>
      <Redirect to="/" />
      </Switch>
   
