@@ -2,22 +2,24 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Navbar from "./Navbar";
 
 const Login = () => {
-  const [username, setUsername] = useState(""); // Username field
-  const [password, setPassword] = useState(""); // Password field
-  const [error, setError] = useState(""); // Error handling
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      history.push("/home"); // Redirect if already logged in
+      history.push("/home");
     }
   }, [history]);
 
   async function login() {
-    setError(""); // Clear previous errors
+    setError("");
 
     const item = new URLSearchParams();
     item.append("username", username);
@@ -35,29 +37,27 @@ const Login = () => {
         }
       );
 
-      console.log("Login Response:", response.data); // Debugging: Log API response
+      const { token, username: resUsername, role } = response.data;
 
-      // Check if response contains the expected 'token' and 'username'
-      if (response.data.token && response.data.username) {
-        localStorage.setItem("token", response.data.token); // Store token
-        localStorage.setItem("username", response.data.username); // Store username
-        history.push("/home"); // Redirect to home after login
+      if (token && resUsername && role) {
+        // ✅ Store all necessary info in localStorage
+        localStorage.setItem("token", token);
+        localStorage.setItem("username", resUsername);
+        localStorage.setItem("role", role);
+
+        // Redirect to homepage
+        history.push("/home");
       } else {
         setError("Invalid login response. Please contact support.");
       }
     } catch (error) {
       if (error.response) {
-        // Server responded with an error status
-        console.error("Response Error:", error.response);
         setError(
-          `Login failed: ${error.response.data.message || "Invalid credentials"}`
+          `Login failed: ${error.response.data.error || "Invalid credentials"}`
         );
       } else if (error.request) {
-        // No response received from server
-        console.error("Request Error:", error.request);
         setError("Server not responding. Please try again later.");
       } else {
-        console.error("Axios Error:", error.message);
         setError("Unexpected error occurred. Please try again.");
       }
     }
@@ -71,7 +71,6 @@ const Login = () => {
           <div className="card-body text-center">
             <h2 className="mb-4">Login</h2>
 
-            {/* Username Input */}
             <div className="mb-3">
               <input
                 value={username}
@@ -82,26 +81,29 @@ const Login = () => {
               />
             </div>
 
-            {/* Password Input */}
-            <div className="mb-3">
+            <div className="mb-3 position-relative">
               <input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="form-control p-3 rounded-pill"
                 placeholder="Enter your password"
               />
+              <span
+                className="position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer"
+                style={{ cursor: "pointer" }}
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </span>
             </div>
 
-            {/* Error Message */}
             {error && <p className="text-danger">{error}</p>}
 
-            {/* Login Button */}
             <button className="btn btn-primary btn-lg rounded-pill w-100" onClick={login}>
               Login
             </button>
 
-            {/* Register Link */}
             <p className="mt-3">
               New user?{" "}
               <NavLink to="/register" className="btn btn-outline-primary btn-sm rounded-pill">

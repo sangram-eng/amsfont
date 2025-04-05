@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -14,6 +15,8 @@ const Register = () => {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -56,7 +59,6 @@ const Register = () => {
       if (error.response) {
         console.error("Response Error:", error.response);
 
-        // If the user already exists
         if (error.response.status === 400) {
           setError(
             <>
@@ -84,7 +86,6 @@ const Register = () => {
           <div className="card-body text-center">
             <h2 className="mb-4">Register</h2>
 
-            {/* Username Input */}
             <div className="mb-3">
               <input
                 name="username"
@@ -96,7 +97,6 @@ const Register = () => {
               />
             </div>
 
-            {/* Email Input */}
             <div className="mb-3">
               <input
                 name="email"
@@ -108,40 +108,41 @@ const Register = () => {
               />
             </div>
 
-            {/* Password Input */}
-            <div className="mb-3">
+            <div className="mb-3 position-relative">
               <input
                 name="password"
                 value={user.password}
                 onChange={handleChange}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="form-control p-3 rounded-pill"
                 placeholder="Enter your password"
               />
+              <span className="position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
 
-            {/* Confirm Password Input */}
-            <div className="mb-3">
+            <div className="mb-3 position-relative">
               <input
                 name="confirmPassword"
                 value={user.confirmPassword}
                 onChange={handleChange}
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 className="form-control p-3 rounded-pill"
                 placeholder="Confirm your password"
               />
+              <span className="position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
 
-            {/* Error & Success Messages */}
             {error && <p className="text-danger">{error}</p>}
             {success && <p className="text-success">{success}</p>}
 
-            {/* Register Button */}
             <button className="btn btn-primary btn-lg rounded-pill w-100" onClick={register}>
               Register
             </button>
 
-            {/* Login Link */}
             <p className="mt-3">
               Already have an account?{" "}
               <NavLink to="/login" className="btn btn-outline-primary btn-sm rounded-pill">

@@ -44,8 +44,8 @@
   background-image: url('./images/world.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right 20px bottom -50px; /* Moves it slightly down */
-  padding: 1cm;
+  background-position: right 10px bottom -50px;
+  padding: 0.92cm;
 }
 
 
@@ -76,7 +76,10 @@
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: center right;
+}
+.text-left {
+  text-align: left !important;
 }
 
 .button-reg {

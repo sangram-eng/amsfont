@@ -37,7 +37,7 @@ const App = () => {
      <Route exact path="/bookticket" component={BookTicket}/>
      <Route exact path="/cancellation" component={Cancellation}/>
      <Route exact path="/viewpassenger" component={ViewPassenger}/>
-     <Route exact path="/view/:id" component={SinglePassengerView}/>
+     <Route exact path="/view" component={SinglePassengerView}/>
      <Route exact path="/edit/:id" component={PassengerEdit}/>
      <Route exact path="/login" component={Login}/>
      <Route exact path="/register" component={Register}/>
